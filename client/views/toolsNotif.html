@@ -1,0 +1,7 @@
+<template name="toolsNotif">
+    {{#with getNotif place speed}}
+        {{#if this}}
+            {{> loadTemplate name="toolsNotifView" data=this}}
+        {{/if}}
+    {{/with}}
+</template>
