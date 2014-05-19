@@ -5,6 +5,7 @@
 i18n.map('en', {
     tools: {
         error: 'Error',
-        notif: 'Notif'
+        notif: 'Notif',
+        success: 'Success'
     }
 });

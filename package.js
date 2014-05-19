@@ -14,6 +14,8 @@ Package.on_use(function (api) {
         'client/views/toolsError.html',
         'client/views/_toolsNotifView.html',
         'client/views/toolsNotif.html',
+        'client/views/_toolsSuccessView.html',
+        'client/views/toolsSuccess.html',
         'client/messages.js'
     ],
         'client');
