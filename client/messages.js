@@ -42,7 +42,7 @@ Vazco.setNotifMessage = function(placeName, text){
 };
 /**
  * Show success message in place from placeName
- * In your template add ex.: {{> toolsNotif place="action_box"}}
+ * In your template add ex.: {{> toolsSuccess place="action_box"}}
  * @param placeName name of place where you placed view.
  * @param text text to show in notification
  */
