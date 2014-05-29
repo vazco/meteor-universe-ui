@@ -1,3 +1,5 @@
+'use strict';
+
 // --------- Error&Notif Message --------------
 var _messageGetter = function(placeName, speed, type){
     if (_.isUndefined(speed)) {
@@ -10,7 +12,8 @@ var _messageGetter = function(placeName, speed, type){
     }
 
     return Session.get(placeName + type);
-}
+};
+
 Template.toolsError.getError = function (placeName, speed) {
     return _messageGetter(placeName, speed, 'Error');
 };
