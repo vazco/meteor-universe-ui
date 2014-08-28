@@ -1,7 +1,7 @@
 <template name="toolsError">
     {{#with getError place speed}}
         {{#if this}}
-            {{> loadTemplate name="toolsErrorView" data=this}}
+            {{> toolsErrorView}}
         {{/if}}
     {{/with}}
 </template>
