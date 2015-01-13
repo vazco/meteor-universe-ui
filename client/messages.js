@@ -14,17 +14,23 @@ var _messageGetter = function(placeName, speed, type){
     return Session.get(placeName + type);
 };
 
-Template.toolsError.getError = function (placeName, speed) {
-    return _messageGetter(placeName, speed, 'Error');
-};
+Template.toolsError.helpers({
+    getError: function (placeName, speed) {
+        return _messageGetter(placeName, speed, 'Error');
+    }
+});
 
-Template.toolsNotif.getNotif = function (placeName, speed) {
-    return _messageGetter(placeName, speed, 'Notif');
-};
+Template.toolsNotif.helpers({
+    getNotif: function (placeName, speed) {
+        return _messageGetter(placeName, speed, 'Notif');
+    }
+});
 
-Template.toolsSuccess.getSuccess = function (placeName, speed) {
-    return _messageGetter(placeName, speed, 'Success');
-};
+Template.toolsSuccess.helpers({
+    getSuccess: function (placeName, speed) {
+        return _messageGetter(placeName, speed, 'Success');
+    }
+});
 /**
  * Show error in place from placeName param
  * In your template add ex.: {{> toolsError place="action_box"}}
