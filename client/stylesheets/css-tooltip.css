@@ -1,0 +1,50 @@
+/* tooltip only css */
+
+/* 
+
+usage:
+
+<div class="tip-relative">
+    <span class="tip-top tip-left" data-tip="Tooltip text">Text</span>
+</div>
+
+position classes: tip-top, tip-left, tip-right, tip-bottom
+
+
+*/
+
+[data-tip]:hover:after {
+    content: attr(data-tip);
+    display: block;
+    position: absolute;
+    z-index: 9999999;
+    padding: 5px;
+    background: rgba(255, 255, 255, .95);
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    color: #000;
+    white-space: nowrap;
+    width: auto;
+    text-align: center;
+    line-height: 100%;
+    font-size: 10px;
+}
+.tip-relative {
+    position: relative;
+}
+.tip-top[data-tip]:hover:after {
+    top: 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+.tip-bottom[data-tip]:hover:after {
+    bottom: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+.tip-left[data-tip]:hover:after {
+    left: 0;
+}
+.tip-right[data-tip]:hover:after {
+    right: 0;
+}

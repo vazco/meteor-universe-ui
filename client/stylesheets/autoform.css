@@ -1,0 +1,17 @@
+.single-line[contenteditable="true"] {
+    white-space: nowrap;
+    min-width:200px;
+    overflow:hidden;
+}
+.single-line[contenteditable="true"] br {
+    display:none;
+}
+.single-line[contenteditable="true"] * {
+    display:inline;
+    white-space:nowrap;
+}
+
+div[contenteditable="true"]:not(:focus):empty:before{
+    content:attr(placeholder);
+    color:#CCC;
+}
