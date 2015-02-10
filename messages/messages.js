@@ -37,7 +37,7 @@ Template.toolsSuccess.helpers({
  * @param placeName
  * @param text
  */
-Vazco.setErrorMessage = function(placeName, text){
+UniUI.setErrorMessage = function(placeName, text){
     Session.set(placeName+'Error', text);
 };
 /**
@@ -46,7 +46,7 @@ Vazco.setErrorMessage = function(placeName, text){
  * @param placeName name of place where you placed view.
  * @param text text to show in notification
  */
-Vazco.setNotifMessage = function(placeName, text){
+UniUI.setNotifMessage = function(placeName, text){
     Session.set(placeName+'Notif', text);
 };
 /**
@@ -55,6 +55,20 @@ Vazco.setNotifMessage = function(placeName, text){
  * @param placeName name of place where you placed view.
  * @param text text to show in notification
  */
-Vazco.setSuccessMessage = function(placeName, text){
+UniUI.setSuccessMessage = function(placeName, text){
     Session.set(placeName+'Success', text);
+};
+
+//deprecated:
+Vazco.setErrorMessage = function(placeName, text){
+    console.warn('Vazco.setErrorMessage is deprecated!, please use UniUI.setErrorMessage() instead');
+    UniUI.setErrorMessage(placeName, text);
+};
+Vazco.setNotifMessage = function(placeName, text){
+    console.warn('Vazco.setNotifMessage is deprecated!, please use UniUI.setNotifMessage() instead');
+    UniUI.setNotifMessage(placeName, text);
+};
+Vazco.setSuccessMessage = function(placeName, text){
+    console.warn('Vazco.setSuccessMessage is deprecated!, please use UniUI.setSuccessMessage() instead');
+    UniUI.setSuccessMessage(placeName, text);
 };

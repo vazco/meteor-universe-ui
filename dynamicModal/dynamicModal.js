@@ -37,7 +37,7 @@ Template.dynamicModal.rendered = function() {
         if (e.target !== e.currentTarget) {
             return;
         }
-        UniUtils.closeModal(tmpl.data.name);
+        UniUI.closeModal(tmpl.data.name);
     });
 
     // session -> modal
@@ -53,7 +53,7 @@ Template.dynamicModal.destroyed = function() {
     modalInstances[this.data.name] = this;
 };
 
-UniUtils.openModal = function(template, data, modalName) {
+UniUI.openModal = function(template, data, modalName) {
     var modalTmpl = modalInstances[modalName || 'default'];
     if (modalTmpl) {
         modalTmpl.currentTemplate.set(template);
@@ -61,7 +61,7 @@ UniUtils.openModal = function(template, data, modalName) {
     }
 };
 
-UniUtils.closeModal = function(modalName) {
+UniUI.closeModal = function(modalName) {
     var modalTmpl = modalInstances[modalName || 'default'];
     if (modalTmpl) {
         modalTmpl.currentTemplate.set(null);

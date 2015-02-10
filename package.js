@@ -11,9 +11,14 @@ Package.on_use(function (api) {
     api.use(['underscore'], ['client', 'server']);
     api.use(['templating', 'ui', 'reactive-var'], 'client');
 
-        api.versionsFrom(['METEOR@0.9.4', 'METEOR@1.0']);
-        api.use(
-        ['vazco:universe-core@1.1.0', 'anti:i18n@0.4.3'], ['client', 'server']);
+    api.versionsFrom(['METEOR@0.9.4', 'METEOR@1.0']);
+    api.use(
+    ['vazco:universe-core@1.1.0', 'anti:i18n@0.4.3'], ['client', 'server']);
+
+    api.add_files([
+            'ProvidingGlobals.js'
+        ],
+        'client');
 
     api.add_files([
         'messages/lib/localization.js',
@@ -41,5 +46,9 @@ Package.on_use(function (api) {
             'tools/vazco_input_spinner_ui.js'
         ],
         'client');
+
+    api.export([
+        'UniUI'
+    ],  ['client']);
 
 });
