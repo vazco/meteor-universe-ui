@@ -1,7 +1,7 @@
 'use strict';
 
-Vazco.dialog = function(elem, options, popover_options) {
-    
+UniUI.dialog = function(elem, options, popover_options) {
+
     if (!elem || !$.isFunction($.fn.popover)) {
         throw new Error('Vazco.dialog requires Bootstrap popover.js and two atributes');
     }
@@ -27,8 +27,13 @@ Vazco.dialog = function(elem, options, popover_options) {
             action.callback();
         });
     });
-    
+
     $(elem).on('hidden.bs.popover', function(){
         $(elem).popover('destroy');
     });
+};
+
+Vazco.dialog = function(elem, options, popover_options){
+    console.warn('Vazco.dialog is deprecated!, please use UniUI.dialog instead.');
+    UniUI.dialog(elem, options, popover_options);
 };

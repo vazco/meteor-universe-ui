@@ -6,9 +6,9 @@ Include templates
 {{> toolsNotif place="header"}}
 ```
 
-To show error `UniUtils.setErrorMessage(placeName, text)`
-To show success `UniUtils.setSuccessMessage(placeName, text)`
-To show info `UniUtils.setNotifMessage(placeName, text)`
+To show error `UniUI.setErrorMessage(placeName, text)`
+To show success `UniUI.setSuccessMessage(placeName, text)`
+To show info `UniUI.setNotifMessage(placeName, text)`
 , where params are:
 
  - placeName - the place where message should be shown (in this example `header`)
