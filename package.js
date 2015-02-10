@@ -16,29 +16,29 @@ Package.on_use(function (api) {
         ['vazco:universe-core@1.1.0', 'anti:i18n@0.4.3'], ['client', 'server']);
 
     api.add_files([
-        'client/lib/localization.js',
-        'client/views/_toolsErrorView.html',
-        'client/views/toolsError.html',
-        'client/views/_toolsNotifView.html',
-        'client/views/toolsNotif.html',
-        'client/views/_toolsSuccessView.html',
-        'client/views/toolsSuccess.html',
-        'client/messages.js',
-        'client/dynamicModal/dynamicModal.html',
-        'client/dynamicModal/dynamicModal.js'
+        'messages/lib/localization.js',
+        'messages/views/_toolsErrorView.html',
+        'messages/views/toolsError.html',
+        'messages/views/_toolsNotifView.html',
+        'messages/views/toolsNotif.html',
+        'messages/views/_toolsSuccessView.html',
+        'messages/views/toolsSuccess.html',
+        'messages/messages.js',
+        'dynamicModal/dynamicModal.html',
+        'dynamicModal/dynamicModal.js'
     ],
         'client');
 
 
     api.add_files([
-            'client/stylesheets/tools.css',
-            'client/stylesheets/css-tooltip.css',
-            'client/stylesheets/autoform.css',
-            'client/tools/vazco_confirm_action_ui.js',
-            'client/tools/vazco_dialog_ui.js',
-            'client/stylesheets/vazco_input_spinner_ui.css',
-            'client/tools/vazco_input_spinner_ui.html',
-            'client/tools/vazco_input_spinner_ui.js'
+            'tools/stylesheets/tools.css',
+            'tools/stylesheets/css-tooltip.css',
+            'tools/stylesheets/autoform.css',
+            'tools/vazco_confirm_action_ui.js',
+            'tools/vazco_dialog_ui.js',
+            'tools/stylesheets/vazco_input_spinner_ui.css',
+            'tools/vazco_input_spinner_ui.html',
+            'tools/vazco_input_spinner_ui.js'
         ],
         'client');
 
