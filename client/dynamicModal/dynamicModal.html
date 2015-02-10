@@ -1,0 +1,9 @@
+<template name="dynamicModal">
+    <div class="modal modal-primary{{#if class}} {{class}}{{/if}}" id="{{id}}">
+        <div class="modal-dialog{{#if data.dialogClass}} {{data.dialogClass}}{{/if}}">
+            <div class="modal-content">
+                {{> Template.dynamic template=template data=data}}
+            </div>
+        </div>
+    </div>
+</template>

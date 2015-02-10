@@ -3,7 +3,7 @@
 Package.describe({
     name: 'vazco:tools-messages',
     summary: 'Vazco Tools Messages, Errors & notifications & dialogs',
-    version: '0.1.5'
+    version: '0.1.6'
 });
 
 Package.on_use(function (api) {
@@ -23,7 +23,9 @@ Package.on_use(function (api) {
         'client/views/toolsNotif.html',
         'client/views/_toolsSuccessView.html',
         'client/views/toolsSuccess.html',
-        'client/messages.js'
+        'client/messages.js',
+        'client/dynamicModal/dynamicModal.html',
+        'client/dynamicModal/dynamicModal.js'
     ],
         'client');
 
