@@ -9,7 +9,7 @@ Package.describe({
 Package.on_use(function (api) {
 
     api.use(['underscore'], ['client', 'server']);
-    api.use(['templating', 'ui'], 'client');
+    api.use(['templating', 'ui', 'reactive-var'], 'client');
 
         api.versionsFrom(['METEOR@0.9.4', 'METEOR@1.0']);
         api.use(
