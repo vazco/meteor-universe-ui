@@ -25,6 +25,9 @@
 UniUI.areYouSure = function(elem, callbacks, popover_options) {
 
     if(elem && $.isFunction($.fn.popover)) {
+        if(_.isObject(elem) && elem instanceof jQuery){
+            elem = elem.get(0);
+        }
         var btnYesLabel = $(elem).data('yes') || 'Yes',
             btnNoLabel = $(elem).data('no') || 'No',
             contentHTML = '<div class="clearfix">' +
