@@ -2,8 +2,8 @@
 
 Package.describe({
     name: 'vazco:tools-messages',
-    summary: 'Vazco Tools Messages, Errors & notifications & dialogs',
-    version: '0.1.6'
+    summary: 'Universe UI, Errors & notifications & dialogs',
+    version: '0.1.7'
 });
 
 Package.on_use(function (api) {
@@ -43,7 +43,8 @@ Package.on_use(function (api) {
             'tools/vazco_dialog_ui.js',
             'tools/stylesheets/vazco_input_spinner_ui.css',
             'tools/vazco_input_spinner_ui.html',
-            'tools/vazco_input_spinner_ui.js'
+            'tools/vazco_input_spinner_ui.js',
+            'tools/events_on_body.js'
         ],
         'client');
 
