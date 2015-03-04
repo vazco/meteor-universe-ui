@@ -3,7 +3,7 @@
 Package.describe({
     name: 'vazco:tools-messages',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.1.7'
+    version: '0.1.8'
 });
 
 Package.on_use(function (api) {
