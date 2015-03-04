@@ -37,35 +37,40 @@ Template.dynamicModal.rendered = function() {
         if (e.target !== e.currentTarget) {
             return;
         }
-        UniUI.closeModal(tmpl.data.name);
-    });
 
-    // session -> modal
-    Tracker.autorun(function(c) {
-        var template = tmpl.currentTemplate.get();
-        tmpl.$modal.modal(template ? 'show' : 'hide');
-        tmpl.sessionObserver = c;
+        // don't close dynamic modal if another dynamic modal apeared in the meantime
+        if (tmpl.closing !== tmpl.opened) {
+            return;
+        }
+        
+        tmpl.currentTemplate.set(null);
+        tmpl.currentData.set(null);
+        $('.modal-backdrop').remove();
     });
 };
 
 Template.dynamicModal.destroyed = function() {
-    this.sessionObserver.stop();
-    modalInstances[this.data.name] = this;
+    modalInstances[this.data.name] = null;
 };
 
 UniUI.openModal = function(template, data, modalName) {
     var modalTmpl = modalInstances[modalName || 'default'];
-    if (modalTmpl) {
-        modalTmpl.currentTemplate.set(template);
-        modalTmpl.currentData.set(data || {});
+    if (!modalTmpl) {
+        return;
     }
+    modalTmpl.currentTemplate.set(template);
+    modalTmpl.currentData.set(data || {});
+    modalTmpl.opened = _.uniqueId();
+    modalTmpl.$modal.modal('show');
 };
 
 UniUI.closeModal = function(modalName) {
     var modalTmpl = modalInstances[modalName || 'default'];
-    if (modalTmpl) {
-        modalTmpl.currentTemplate.set(null);
-        modalTmpl.currentData.set(null);
+    if (!modalTmpl) {
+        return;
     }
-    $('.modal-backdrop').remove();
+    modalTmpl.closing = modalTmpl.opened;
+    modalTmpl.$modal.modal('hide');
+    modalTmpl.currentTemplate.set(null);
+    modalTmpl.currentData.set(null);
 };
