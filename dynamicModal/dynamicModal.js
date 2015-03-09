@@ -43,9 +43,7 @@ Template.dynamicModal.rendered = function() {
             return;
         }
         
-        tmpl.currentTemplate.set(null);
-        tmpl.currentData.set(null);
-        $('.modal-backdrop').remove();
+        clean(tmpl);
     });
 };
 
@@ -71,6 +69,11 @@ UniUI.closeModal = function(modalName) {
     }
     modalTmpl.closing = modalTmpl.opened;
     modalTmpl.$modal.modal('hide');
-    modalTmpl.currentTemplate.set(null);
-    modalTmpl.currentData.set(null);
+    clean(modalTmpl);
 };
+
+function clean(tmpl) {
+    tmpl.currentTemplate.set(null);
+    tmpl.currentData.set(null);
+    $('.modal-backdrop').remove();
+}
