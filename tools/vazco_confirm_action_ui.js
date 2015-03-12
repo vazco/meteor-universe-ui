@@ -31,8 +31,8 @@ UniUI.areYouSure = function(elem, callbacks, popover_options) {
         var btnYesLabel = $(elem).data('yes') || 'Yes',
             btnNoLabel = $(elem).data('no') || 'No',
             contentHTML = '<div class="clearfix">' +
-            '<button class="btn btn-xs btn-default ays-yes pull-left">' + btnYesLabel + '</button>' +
-            '<button class="btn btn-xs btn-default ays-no pull-right">' + btnNoLabel + '</button>' +
+            '<button type="button" class="btn btn-xs btn-default ays-yes pull-left">' + btnYesLabel + '</button>' +
+            '<button type="button" class="btn btn-xs btn-default ays-no pull-right">' + btnNoLabel + '</button>' +
             '</div>',
             onSuccess = function() {},
             onCancel = function() {};
