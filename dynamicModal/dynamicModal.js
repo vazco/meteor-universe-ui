@@ -39,10 +39,11 @@ Template.dynamicModal.rendered = function() {
         }
 
         // don't close dynamic modal if another dynamic modal apeared in the meantime
-        if (tmpl.closing !== tmpl.opened) {
+        // (and closing by UniUI.closeModal)
+        if (tmpl.closing && tmpl.closing !== tmpl.opened) {
             return;
         }
-        
+
         clean(tmpl);
     });
 };
