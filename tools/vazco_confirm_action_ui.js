@@ -31,8 +31,8 @@ UniUI.areYouSure = function(elem, callbacks, popover_options) {
         var btnYesLabel = $(elem).data('yes') || 'Yes',
             btnNoLabel = $(elem).data('no') || 'No',
             contentHTML = '<div class="clearfix">' +
-            '<button class="btn btn-xs btn-default ays-yes pull-left">' + btnYesLabel + '</button>' +
-            '<button class="btn btn-xs btn-default ays-no pull-right">' + btnNoLabel + '</button>' +
+            '<button type="button" class="btn btn-xs btn-default ays-yes pull-left">' + btnYesLabel + '</button>' +
+            '<button type="button" class="btn btn-xs btn-default ays-no pull-right">' + btnNoLabel + '</button>' +
             '</div>',
             onSuccess = function() {},
             onCancel = function() {};
@@ -51,14 +51,31 @@ UniUI.areYouSure = function(elem, callbacks, popover_options) {
 
         $(elem).popover(popover_options);
 
+        if(popover_options.outsideClickIsClosingPopover){
+            var _pId = _.uniqueId('_');
+            $(elem).on('shown.bs.popover', function(){
+                $('body').off('click.outsideClickIsClosingPopover'+_pId);
+                $('body').on('click.outsideClickIsClosingPopover'+_pId, function(e){
+                    var $this = $(e.target).closest('.popover');
+                    if(!$this.length){
+                        $(elem).popover('destroy');
+                    }
+                });
+            });
+            $(elem).on('hide.bs.popover', function(){
+                $('body').off('click.outsideClickIsClosingPopover'+_pId);
+            });
+
+        }
+
         $(elem).popover('show');
 
-        $('.ays-yes').on('click', function() {
-            onSuccess();
+        $('.ays-yes').on('click', function(e, tmpl) {
+            onSuccess(e, tmpl);
             $(elem).popover('destroy');
         });
-        $('.ays-no').on('click', function() {
-            onCancel();
+        $('.ays-no').on('click', function(e, tmpl) {
+            onCancel(e, tmpl);
             $(elem).popover('destroy');
         });
 

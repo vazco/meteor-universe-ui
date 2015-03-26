@@ -39,13 +39,12 @@ Template.dynamicModal.rendered = function() {
         }
 
         // don't close dynamic modal if another dynamic modal apeared in the meantime
-        if (tmpl.closing !== tmpl.opened) {
+        // (and closing by UniUI.closeModal)
+        if (tmpl.closing && tmpl.closing !== tmpl.opened) {
             return;
         }
-        
-        tmpl.currentTemplate.set(null);
-        tmpl.currentData.set(null);
-        $('.modal-backdrop').remove();
+
+        clean(tmpl);
     });
 };
 
@@ -71,6 +70,11 @@ UniUI.closeModal = function(modalName) {
     }
     modalTmpl.closing = modalTmpl.opened;
     modalTmpl.$modal.modal('hide');
-    modalTmpl.currentTemplate.set(null);
-    modalTmpl.currentData.set(null);
+    clean(modalTmpl);
 };
+
+function clean(tmpl) {
+    tmpl.currentTemplate.set(null);
+    tmpl.currentData.set(null);
+    $('.modal-backdrop').remove();
+}

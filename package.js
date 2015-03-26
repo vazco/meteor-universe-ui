@@ -3,7 +3,7 @@
 Package.describe({
     name: 'universe:ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.1.8'
+    version: '0.5.0'
 });
 
 Package.on_use(function (api) {
