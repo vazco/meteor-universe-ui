@@ -1,7 +1,7 @@
 'use strict';
 
 Package.describe({
-    name: 'universe:ui',
+    name: 'vazco:universe-ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
     version: '0.5.0'
 });
