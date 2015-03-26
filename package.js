@@ -1,19 +1,22 @@
 'use strict';
 
 Package.describe({
-    name: 'vazco:tools-messages',
+    name: 'universe:ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.1.7'
+    version: '0.1.8'
 });
 
 Package.on_use(function (api) {
 
-    api.use(['underscore'], ['client', 'server']);
+    api.use(['underscore']);
     api.use(['templating', 'ui', 'reactive-var'], 'client');
 
-    api.versionsFrom(['METEOR@0.9.4', 'METEOR@1.0']);
-    api.use(
-    ['vazco:universe-core@1.1.0', 'anti:i18n@0.4.3'], ['client', 'server']);
+    api.versionsFrom(['METEOR@1.0']);
+    api.use([
+        'vazco:universe-utilities@1.0.0',
+        'vazco:universe-collection@1.0.0',
+        'anti:i18n@0.4.3'
+    ]);
 
     api.add_files([
             'ProvidingGlobals.js'
@@ -28,9 +31,7 @@ Package.on_use(function (api) {
         'messages/views/toolsNotif.html',
         'messages/views/_toolsSuccessView.html',
         'messages/views/toolsSuccess.html',
-        'messages/messages.js',
-        'dynamicModal/dynamicModal.html',
-        'dynamicModal/dynamicModal.js'
+        'messages/messages.js'
     ],
         'client');
 
@@ -44,7 +45,9 @@ Package.on_use(function (api) {
             'tools/stylesheets/vazco_input_spinner_ui.css',
             'tools/vazco_input_spinner_ui.html',
             'tools/vazco_input_spinner_ui.js',
-            'tools/events_on_body.js'
+            'tools/events_on_body.js',
+            'tools/UniUsers_defaultPermissionField.html',
+            'tools/UniUsers_defaultPermissionField.js'
         ],
         'client');
 
