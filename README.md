@@ -1,4 +1,11 @@
 # Universe UI
+
+## Installation
+
+```sh
+$ meteor add vazco:universe-ui
+```
+
 ## List of components
 
 - [Dynamic Modal](dynamicModal/README.md)
