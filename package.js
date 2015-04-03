@@ -3,7 +3,7 @@
 Package.describe({
     name: 'vazco:universe-ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.5.0'
+    version: '0.6.0'
 });
 
 Package.on_use(function (api) {
@@ -11,16 +11,16 @@ Package.on_use(function (api) {
     api.use(['underscore']);
     api.use(['templating', 'ui', 'reactive-var'], 'client');
 
-    api.versionsFrom(['METEOR@1.0']);
+    api.versionsFrom(['METEOR@1.0.4']);
     api.use([
-        'vazco:universe-utilities@1.0.0',
-        'vazco:universe-collection@1.0.0',
+        'vazco:universe-utilities@1.0.4',
+        'vazco:universe-collection@1.0.6',
         'anti:i18n@0.4.3'
     ]);
 
     api.add_files([
             'ProvidingGlobals.js'
-        ],
+    ],
         'client');
 
     api.add_files([
@@ -47,7 +47,9 @@ Package.on_use(function (api) {
             'tools/vazco_input_spinner_ui.js',
             'tools/events_on_body.js',
             'tools/UniUsers_defaultPermissionField.html',
-            'tools/UniUsers_defaultPermissionField.js'
+            'tools/UniUsers_defaultPermissionField.js',
+            'dynamicModal/dynamicModal.html',
+            'dynamicModal/dynamicModal.js'
         ],
         'client');
 
