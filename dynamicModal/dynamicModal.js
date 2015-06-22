@@ -52,15 +52,20 @@ Template.dynamicModal.destroyed = function() {
     modalInstances[this.data.name] = null;
 };
 
-UniUI.openModal = function(template, data, modalName) {
-    var modalTmpl = modalInstances[modalName || 'default'];
+UniUI.openModal = function(template, data, name) {
+    var modalName = name || 'default';
+    var modalTmpl = modalInstances[modalName];
+
     if (!modalTmpl) {
         return;
     }
+
     modalTmpl.currentTemplate.set(template);
     modalTmpl.currentData.set(data || {});
     modalTmpl.opened = _.uniqueId();
-    modalTmpl.$modal.modal('show');
+
+    // modalTmpl.$modal.modal('show');
+    $(modalTmpl.find('#' + modalId(modalName))).modal('show');
 };
 
 UniUI.closeModal = function(modalName) {
