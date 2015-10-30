@@ -1,0 +1,4 @@
+_namespace: tools
+error: Error
+notif: Notif
+success: Success
