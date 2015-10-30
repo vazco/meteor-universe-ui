@@ -14,6 +14,11 @@ var _messageGetter = function(placeName, speed, type){
     return Session.get(placeName + type);
 };
 
+var i18n = _i18n.createReactiveTranslator();
+Template._toolsErrorView.helpers({i18n: i18n});
+Template._toolsNotifView.helpers({i18n: i18n});
+Template._toolsSuccessView.helpers({i18n: i18n});
+
 Template.toolsError.helpers({
     getError: function (placeName, speed) {
         return _messageGetter(placeName, speed, 'Error');
@@ -57,18 +62,4 @@ UniUI.setNotifMessage = function(placeName, text){
  */
 UniUI.setSuccessMessage = function(placeName, text){
     Session.set(placeName+'Success', text);
-};
-
-//deprecated:
-Vazco.setErrorMessage = function(placeName, text){
-    console.warn('Vazco.setErrorMessage is deprecated!, please use UniUI.setErrorMessage() instead');
-    UniUI.setErrorMessage(placeName, text);
-};
-Vazco.setNotifMessage = function(placeName, text){
-    console.warn('Vazco.setNotifMessage is deprecated!, please use UniUI.setNotifMessage() instead');
-    UniUI.setNotifMessage(placeName, text);
-};
-Vazco.setSuccessMessage = function(placeName, text){
-    console.warn('Vazco.setSuccessMessage is deprecated!, please use UniUI.setSuccessMessage() instead');
-    UniUI.setSuccessMessage(placeName, text);
 };

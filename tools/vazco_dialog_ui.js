@@ -33,7 +33,7 @@ UniUI.dialog = function(elem, options, popover_options) {
     });
 };
 
-Vazco.dialog = function(elem, options, popover_options){
+UniUI.dialog = function(elem, options, popover_options){
     console.warn('Vazco.dialog is deprecated!, please use UniUI.dialog instead.');
     UniUI.dialog(elem, options, popover_options);
 };
