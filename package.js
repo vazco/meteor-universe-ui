@@ -14,7 +14,7 @@ Package.on_use(function (api) {
 
     api.versionsFrom(['METEOR@1.0.4']);
     api.use([
-        'universe:utilities@2.0.9',
+        'universe:utilities@2.1.0',
         'universe:collection@2.0.4',
         'universe:i18n@1.2.0'
     ]);
