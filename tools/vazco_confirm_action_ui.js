@@ -88,7 +88,8 @@ UniUI.areYouSure = function(elem, callbacks, popover_options) {
 
 };
 
-Vazco.areYouSure = function(elem, callbacks, popover_options){
+/*Vazco.areYouSure = function(elem, callbacks, popover_options){
     console.warn('Vazco.areYouSure is deprecated!, please use UniUI.areYouSure instead.');
     UniUI.areYouSure(elem, callbacks, popover_options);
-};
+};*/
+
