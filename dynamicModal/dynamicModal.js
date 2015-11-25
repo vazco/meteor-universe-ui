@@ -26,10 +26,8 @@ Template.dynamicModal.created = function() {
 };
 
 Template.dynamicModal.rendered = function() {
-
     var tmpl = this;
     tmpl.$modal = tmpl.$('#' + modalId(tmpl.data.name));
-
 
     // modal -> session
     tmpl.$modal.on('hidden.bs.modal', function(e) {
@@ -70,7 +68,7 @@ UniUI.openModal = function(template, data, name) {
 
 UniUI.closeModal = function(modalName) {
     var modalTmpl = modalInstances[modalName || 'default'];
-    if (!modalTmpl) {
+    if (!modalTmpl || !modalTmpl.$modal) {
         return;
     }
     modalTmpl.closing = modalTmpl.opened;
