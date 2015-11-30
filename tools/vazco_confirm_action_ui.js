@@ -83,13 +83,7 @@ UniUI.areYouSure = function(elem, callbacks, popover_options) {
             $(elem).popover('destroy');
         });
     } else {
-        throw new Error('Vazco.areYouSure requires Bootstrap popover.js and two atributes');
+        throw new Error('UniUI.areYouSure requires Bootstrap popover.js and two atributes');
     }
 
 };
-
-/*Vazco.areYouSure = function(elem, callbacks, popover_options){
-    console.warn('Vazco.areYouSure is deprecated!, please use UniUI.areYouSure instead.');
-    UniUI.areYouSure(elem, callbacks, popover_options);
-};*/
-
