@@ -3,7 +3,7 @@
 Package.describe({
     name: 'vazco:universe-ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.6.6',
+    version: '0.6.7',
     git: 'https://github.com/vazco/meteor-universe-ui'
 });
 
