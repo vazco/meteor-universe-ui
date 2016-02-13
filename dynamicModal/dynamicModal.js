@@ -15,6 +15,10 @@ Template.dynamicModal.helpers({
     data: function() {
         var modal = modalInstances[this.name];
         return modal && modal.currentData.get();
+    },
+    options: function() {
+        var modal = modalInstances[this.name];
+        return modal && modal.currentOptions.get();
     }
 });
 
@@ -23,6 +27,7 @@ Template.dynamicModal.created = function() {
     modalInstances[this.data.name] = this;
     this.currentTemplate = new ReactiveVar(null);
     this.currentData = new ReactiveVar(null);
+    this.currentOptions = new ReactiveVar(null);
 };
 
 Template.dynamicModal.rendered = function() {
@@ -50,7 +55,7 @@ Template.dynamicModal.destroyed = function() {
     modalInstances[this.data.name] = null;
 };
 
-UniUI.openModal = function(template, data, name) {
+UniUI.openModal = function(template, data, name, options) {
     var modalName = name || 'default';
     var modalTmpl = modalInstances[modalName];
 
@@ -60,6 +65,7 @@ UniUI.openModal = function(template, data, name) {
 
     modalTmpl.currentTemplate.set(template);
     modalTmpl.currentData.set(data || {});
+    modalTmpl.currentOptions.set(options || {});
     modalTmpl.opened = _.uniqueId();
 
     // modalTmpl.$modal.modal('show');
@@ -79,5 +85,6 @@ UniUI.closeModal = function(modalName) {
 function clean(tmpl) {
     tmpl.currentTemplate.set(null);
     tmpl.currentData.set(null);
+    tmpl.currentOptions.set(null);
     $('.modal-backdrop').remove();
 }
