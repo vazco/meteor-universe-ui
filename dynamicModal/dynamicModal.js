@@ -67,6 +67,7 @@ UniUI.openModal = function(template, data, name, options) {
     modalTmpl.currentData.set(data || {});
     modalTmpl.currentOptions.set(options || {});
     modalTmpl.opened = _.uniqueId();
+    delete modalTmpl.closing;
 
     // modalTmpl.$modal.modal('show');
     $(modalTmpl.find('#' + modalId(modalName))).modal('show');
