@@ -3,13 +3,13 @@
 Package.describe({
     name: 'vazco:universe-ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.6.9',
+    version: '0.6.10',
     git: 'https://github.com/vazco/meteor-universe-ui'
 });
 
 Package.on_use(function (api) {
 
-    api.use(['underscore', 'session']);
+    api.use(['underscore', 'session', 'ecmascript']);
     api.use(['templating', 'ui', 'reactive-var'], 'client');
 
     api.versionsFrom(['METEOR@1.0.4']);
