@@ -48,6 +48,7 @@ Template.dynamicModal.rendered = function() {
         }
 
         clean(tmpl);
+        tmpl.closing = null;
     });
 };
 
