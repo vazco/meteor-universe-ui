@@ -14,6 +14,11 @@ var _messageGetter = function(placeName, speed, type){
     return Session.get(placeName + type);
 };
 
+var i18n = _i18n.createReactiveTranslator();
+Template._toolsErrorView.helpers({i18n: i18n});
+Template._toolsNotifView.helpers({i18n: i18n});
+Template._toolsSuccessView.helpers({i18n: i18n});
+
 Template.toolsError.helpers({
     getError: function (placeName, speed) {
         return _messageGetter(placeName, speed, 'Error');
@@ -37,8 +42,9 @@ Template.toolsSuccess.helpers({
  * @param placeName
  * @param text
  */
-UniUI.setErrorMessage = function(placeName, text){
-    Session.set(placeName+'Error', text);
+UniUI.setErrorMessage = function(placeName, text, icon){
+    console.error(text);
+    Session.set(placeName+'Error', {text, icon});
 };
 /**
  * Show notification message in place from placeName
@@ -46,8 +52,8 @@ UniUI.setErrorMessage = function(placeName, text){
  * @param placeName name of place where you placed view.
  * @param text text to show in notification
  */
-UniUI.setNotifMessage = function(placeName, text){
-    Session.set(placeName+'Notif', text);
+UniUI.setNotifMessage = function(placeName, text, icon){
+    Session.set(placeName+'Notif', {text, icon});
 };
 /**
  * Show success message in place from placeName
@@ -55,20 +61,6 @@ UniUI.setNotifMessage = function(placeName, text){
  * @param placeName name of place where you placed view.
  * @param text text to show in notification
  */
-UniUI.setSuccessMessage = function(placeName, text){
-    Session.set(placeName+'Success', text);
-};
-
-//deprecated:
-Vazco.setErrorMessage = function(placeName, text){
-    console.warn('Vazco.setErrorMessage is deprecated!, please use UniUI.setErrorMessage() instead');
-    UniUI.setErrorMessage(placeName, text);
-};
-Vazco.setNotifMessage = function(placeName, text){
-    console.warn('Vazco.setNotifMessage is deprecated!, please use UniUI.setNotifMessage() instead');
-    UniUI.setNotifMessage(placeName, text);
-};
-Vazco.setSuccessMessage = function(placeName, text){
-    console.warn('Vazco.setSuccessMessage is deprecated!, please use UniUI.setSuccessMessage() instead');
-    UniUI.setSuccessMessage(placeName, text);
+UniUI.setSuccessMessage = function(placeName, text, icon){
+    Session.set(placeName+'Success', {text, icon});
 };

@@ -3,29 +3,29 @@
 Package.describe({
     name: 'vazco:universe-ui',
     summary: 'Universe UI, Errors & notifications & dialogs',
-    version: '0.6.2',
+    version: '0.7.0',
     git: 'https://github.com/vazco/meteor-universe-ui'
 });
 
 Package.on_use(function (api) {
 
-    api.use(['underscore']);
+    api.use(['underscore', 'session', 'ecmascript']);
     api.use(['templating', 'ui', 'reactive-var'], 'client');
 
     api.versionsFrom(['METEOR@1.0.4']);
     api.use([
-        'vazco:universe-utilities@1.0.4',
-        'vazco:universe-collection@1.0.6',
-        'anti:i18n@0.4.3'
+        'universe:utilities@2.1.0',
+        'universe:collection@2.0.4',
+        'universe:i18n@1.2.0'
     ]);
 
-    api.add_files([
+    api.addFiles([
             'ProvidingGlobals.js'
     ],
         'client');
 
-    api.add_files([
-        'messages/lib/localization.js',
+    api.addFiles([
+        'messages/lib/en.i18n.yml',
         'messages/views/_toolsErrorView.html',
         'messages/views/toolsError.html',
         'messages/views/_toolsNotifView.html',
@@ -37,7 +37,7 @@ Package.on_use(function (api) {
         'client');
 
 
-    api.add_files([
+    api.addFiles([
             'tools/stylesheets/tools.css',
             'tools/stylesheets/css-tooltip.css',
             'tools/stylesheets/autoform.css',

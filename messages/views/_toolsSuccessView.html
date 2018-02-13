@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>{{i18n 'tools.success'}}:</strong> {{this}}
+            <strong>{{#if icon}}{{{icon}}}{{else}}{{i18n 'tools.success'}}:{{/if}}</strong> {{text}}
         </div>
     </div>
 </template>
