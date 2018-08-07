@@ -21,8 +21,7 @@ $ meteor add vazco:universe-ui
 - [Dynamic Modal](dynamicModal/README.md)
 - [Messages (error, success, info)](messages/README.md)
 
-
-### bootstrap is needed
+**Bootstrap is needed.**
 
 ## License
 
